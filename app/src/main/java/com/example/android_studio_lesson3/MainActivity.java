@@ -1,5 +1,6 @@
 package com.example.android_studio_lesson3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText numberEditText;
     private Button operationButton;
     private TextView resultTextView;
+    private Button showButton;
     private int number;
 
     @Override
@@ -35,12 +37,19 @@ public class MainActivity extends AppCompatActivity {
             number = number * number;
             showText();
         });
+
+        showButton.setOnClickListener(v ->{
+            Intent intent = new Intent(this, SecondActivity.class);
+            intent.putExtra(SecondActivity.NUMBER_EXTRA_KEY, number);
+            startActivity(intent);
+        });
     }
 
     private void initView() {
         resultTextView = findViewById(R.id.result_text_view);
         operationButton = findViewById(R.id.operation_button);
         numberEditText = findViewById(R.id.number_edit_text);
+        showButton = findViewById(R.id.show_button);
     }
 
     @Override
