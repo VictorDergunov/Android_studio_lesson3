@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -24,6 +25,13 @@ public class SecondActivity extends AppCompatActivity {
 
         int number = getIntent().getExtras().getInt(NUMBER_EXTRA_KEY);
         numberTextView.setText(String.valueOf(number));
+
+        webButton.setOnClickListener(v ->{
+            String url = "https://gb.ru";
+            Uri uri = Uri.parse(url);
+            Intent webIntent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(webIntent);
+        });
         }
 
     private void initView() {
