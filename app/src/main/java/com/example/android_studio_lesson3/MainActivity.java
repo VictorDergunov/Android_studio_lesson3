@@ -39,8 +39,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         showButton.setOnClickListener(v ->{
-            Intent intent = new Intent(this, SecondActivity.class);
-            intent.putExtra(SecondActivity.NUMBER_EXTRA_KEY, number);
+            Intent intent = SecondActivity.getIntentForLaunch(this, number);
             startActivity(intent);
         });
     }
